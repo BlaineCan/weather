@@ -1,12 +1,11 @@
-//use the weather underground api key
-
-fetch('http://api.wunderground.com/api/*api key goes here*/conditions/q/TX/Dallas.json').then(content);
-
-let
-
-function content(response) {
-    let data = response.json().then(function (data) {
-        console.log(data);
+if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function (position) {
+        let lat = position.coords.latitude;
+        let long = position.coords.longitude;
+        fetch('http://api.wunderground.com/api/aed684636d700ce7/geolookup/conditions/q/'+ lat +','+ long +'.json').then(function (response) {
+            return response.json()
+        }).then(function (data) {
+            console.log(data);
+        })
     })
-
 }
