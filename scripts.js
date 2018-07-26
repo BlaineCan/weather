@@ -1,23 +1,20 @@
-let conditions = [
-  {loc: 'New York', temp: 75, high: 77, low: 62}
-];
-
-(function weather(conditions){
+(function weather(){
   this.init = function(){
-    this.getWeather();
-  };
-  this.update = function(conditions){
-    temp.innerHTML = conditions[0].temp;
-    location.innerHTML = conditions[0].loc;
-    high.innerHTML = conditions[0].high;
-    low.innerHTML = conditions[0].low;
+    this.data();
   }
-
-  this.getWeather = function(){
-    temp = document.querySelector('#weather_current_temp');
-    loc = document.querySelector('#current_location');
-    high = document.querySelector('#weather_high_temp');
-    low = document.querySelector('#weather_low_temp');
-    update(conditions);
+  this.data = function(){
+    let url = 'https://fcc-weather-api.glitch.me/api/current?lat=53.70&lon=-1.24';
+    fetch(url).then(
+      function(response){
+        if(response.status !== 200){
+          console.log('Looks like there was a problem. Status code: ' + response.status);
+          return;
+        }
+        response.json().then(function(data){
+          console.log(data);
+        });
+      }
+    )
   }
+  this.init();
 })();
