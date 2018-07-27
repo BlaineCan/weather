@@ -17,9 +17,11 @@
             let location = document.querySelector('#location');
             let temperature = document.querySelector('#weather_current_temp');
             let description = document.querySelector('#description');
+            let icon = document.querySelector('#icon');
             location.innerHTML = data.current_observation.display_location.city;
             temperature.innerHTML = Math.round(data.current_observation.temp_f);
             description.innerHTML = data.current_observation.weather;
+            icon.setAttribute('src', data.current_observation.icon_url);
         });
       }
     )
