@@ -33,3 +33,26 @@ span{
   justify-content: center;
   margin-left: 2rem;
 }
+
+input{
+  width: 35%;
+  padding: 5px 2px;
+}
+
+  input:focus{
+    outline: none;
+  }
+
+button{
+  padding: 5px;
+  background: none;
+}
+
+  button:hover{
+    background: black;
+    color: white;
+  }
+
+form{
+  margin-bottom: 25px;
+}
