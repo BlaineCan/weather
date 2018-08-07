@@ -3,7 +3,7 @@
     this.data();
   }
   this.data = function(){
-    let key = 'aed684636d700ce7';
+    let key = //Insert your api key here;
     let url = 'http://api.wunderground.com/api/'+ key +'/conditions/q/TX/Dallas.json';
     fetch(url).then(
       function(response){
