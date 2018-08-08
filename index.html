@@ -5,11 +5,13 @@
     <link rel="stylesheet" href="sass-css-output.css">
   </head>
   <body>
-    <form class="form">
-      <input id="input-search" type="text" name="search-weather" placeholder="Search location">
-      <button id="submit-button" type="sumbit" name="submit-button">Get Weather</button>
-    </form>
-    <div id="container">
+    <div class="weather-form-button">
+      <form class="form" method="get">
+        <input id="input-search" type="text" name="search-weather" placeholder="Search location">
+      </form>
+      <button type="submit" id="submit-button" name="submit-button">Get Weather</button>
+    </div>
+    <div id="weather-container" class="hidden">
       <h2 id="location"></h2>
       <div class="mid">
         <img src="" alt="icon" id="icon">

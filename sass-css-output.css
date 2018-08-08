@@ -1,3 +1,6 @@
+.hidden {
+  display: none; }
+
 h1, h2, h3, span {
   margin: 0; }
 
@@ -12,6 +15,10 @@ h3 {
 
 span {
   font-size: 4rem; }
+
+.weather-form-button {
+  display: flex;
+  flex-wrap: wrap; }
 
 #container {
   max-width: 650px;
@@ -28,19 +35,17 @@ span {
   margin-left: 2rem; }
 
 input {
-  width: 35%;
+  width: 25rem;
   padding: 5px 2px; }
   input:focus {
     outline: none; }
 
 button {
+  margin-left: 1.5rem;
   padding: 5px;
   background: none; }
   button:hover {
     background: black;
     color: white; }
-
-form {
-  margin-bottom: 25px; }
 
 /*# sourceMappingURL=sass-css-output.css.map */
