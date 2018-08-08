@@ -1,6 +1,5 @@
 (function weather(){
   this.init = function(){
-    this.getLocation();
     this.sendLocation();
   }
   this.sendLocation = function(){
@@ -9,7 +8,7 @@
   }
   this.getLocation = function(){
       let form = document.querySelector('.form');
-      form.addEventListener('submit', function(evt){
+      form.addEventListener('submit', function(event){
         event.preventDefault();
         let value = document.querySelector('#input-search').value;
         form.reset();
