@@ -40,9 +40,29 @@
   }
   this.showPosition = function(position){
     console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    let key = 'aed684636d700ce7';
+    let url = 'http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json';
+    fetch(url).then(
+      function (response) {
+        if(response.status !== 200){
+          console.log('Looks like there was a problem. Status code: ' + response.status);
+          return;
+        }
+        response.json().then(
+          function(data){
+            console.log(data)
+          }
+        )
+      }
+    )
   }
-  this.fetchdata = function(){
-    let url = "" 
-  }
+  // this.fetchlocation = function(position){
+  //   let state = position.location.state;
+  //   let city = position.location.city;
+  //   let key = '';
+  //   let url = 'http://api.wunderground.com/api/'+ key +'/conditions/q/'+ state +'/'+ city +'.json';
+  // }
   this.init();
 })();
