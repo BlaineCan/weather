@@ -29,11 +29,12 @@
 (function weather(){
   this.init = function(){
     this.getlocation();
-    this.showPosition();
+    this.fetchlocation();
   }
   this.getlocation = function(){
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(showPosition);
+      this.showPosition();
     } else {
       console.log("Geolocation not supported");
     }
@@ -43,8 +44,8 @@
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     let key = 'aed684636d700ce7';
-    let url = 'http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json';
-    fetch(url).then(
+    let geolookup = 'http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json';
+    fetch(geolookup).then(
       function (response) {
         if(response.status !== 200){
           console.log('Looks like there was a problem. Status code: ' + response.status);
@@ -52,17 +53,31 @@
         }
         response.json().then(
           function(data){
-            console.log(data)
+            let state = data.location.state;
+            let city = data.location.city;
+            let conditions = 'http://api.wunderground.com/api/'+ key +'/conditions/q/'+ state +'/'+ city +'.json';
+            fetch(conditions).then(
+              function(response){
+                if(response.status !== 200){
+                  console.log('Looks like there was a problem. Status code: '+ response.status);
+                  return;
+                }
+                response.json().then(
+                  function(data){
+                    let location = document.querySelector('#location');
+                    let temperature = document.querySelector('#weather_current_temp');
+                    let description = document.querySelector('#description');
+                    location.innerHTML = data.current_observation.display_location.city;
+                    temperature.innerHTML = Math.round(data.current_observation.temp_f);
+                    description.innerHTML = data.current_observation.weather;
+                  }
+                )
+              }
+            )
           }
         )
       }
     )
   }
-  // this.fetchlocation = function(position){
-  //   let state = position.location.state;
-  //   let city = position.location.city;
-  //   let key = '';
-  //   let url = 'http://api.wunderground.com/api/'+ key +'/conditions/q/'+ state +'/'+ city +'.json';
-  // }
   this.init();
 })();
