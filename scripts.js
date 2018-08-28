@@ -29,7 +29,6 @@
 (function weather(){
   this.init = function(){
     this.getlocation();
-    this.fetchlocation();
   }
   this.getlocation = function(){
     if(navigator.geolocation){
