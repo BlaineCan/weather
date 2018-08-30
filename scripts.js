@@ -1,31 +1,3 @@
-// (function weather(){
-//   this.init = function(){
-//     this.sendLocation();
-//   }
-//   this.sendLocation = function(){
-//     let button = document.querySelector('#submit-button');
-//     button.addEventListener('click', getLocation());
-//   }
-//   this.getLocation = function(){
-//       let form = document.querySelector('.form');
-//       form.addEventListener('submit', function(event){
-//         event.preventDefault();
-//         let value = document.querySelector('#input-search').value;
-//         form.reset();
-//         getData(value.split(' ').join('+'));
-//       })
-//   }
-//   this.getData = function(loc){
-//     let url = ' http://autocomplete.wunderground.com/aq?query=' + loc;
-//     fetch(url, {mode: 'cors'}).then(
-//       function (response) {
-//         console.log(response[0].name);
-//       }
-//     )
-//   }
-//   this.init();
-// })();
-
 (function weather(){
   this.init = function(){
     this.getlocation();
@@ -43,7 +15,7 @@
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     let key = 'aed684636d700ce7';
-    let geolookup = 'http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json';
+    let geolookup = 'https://cors-anywhere.herokuapp.com/http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json';
     fetch(geolookup).then(
       function (response) {
         if(response.status !== 200){
@@ -54,7 +26,7 @@
           function(data){
             let state = data.location.state;
             let city = data.location.city;
-            let conditions = 'http://api.wunderground.com/api/'+ key +'/conditions/q/'+ state +'/'+ city +'.json';
+            let conditions = 'https://cors-anywhere.herokuapp.com/http://api.wunderground.com/api/'+ key +'/conditions/q/'+ state +'/'+ city +'.json';
             fetch(conditions).then(
               function(response){
                 if(response.status !== 200){
