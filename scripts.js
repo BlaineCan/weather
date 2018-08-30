@@ -1,28 +1,54 @@
 (function weather(){
   this.init = function(){
-    this.data();
+    this.getlocation();
   }
-  this.data = function(){
+  this.getlocation = function(){
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(showPosition);
+      this.showPosition();
+    } else {
+      console.log("Geolocation not supported");
+    }
+  }
+  this.showPosition = function(position){
+    console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
     let key = 'aed684636d700ce7';
-    let url = 'http://api.wunderground.com/api/'+ key +'/conditions/q/TX/Dallas.json';
-    fetch(url).then(
-      function(response){
+    let geolookup = 'https://cors-anywhere.herokuapp.com/http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json';
+    fetch(geolookup).then(
+      function (response) {
         if(response.status !== 200){
           console.log('Looks like there was a problem. Status code: ' + response.status);
           return;
         }
         response.json().then(
           function(data){
-            console.log(data);
-            let location = document.querySelector('#location');
-            let temperature = document.querySelector('#weather_current_temp');
-            let description = document.querySelector('#description');
-            let icon = document.querySelector('#icon');
-            location.innerHTML = data.current_observation.display_location.city;
-            temperature.innerHTML = Math.round(data.current_observation.temp_f);
-            description.innerHTML = data.current_observation.weather;
-            icon.setAttribute('src', data.current_observation.icon_url);
-        });
+            let state = data.location.state;
+            let city = data.location.city;
+            let conditions = 'https://cors-anywhere.herokuapp.com/http://api.wunderground.com/api/'+ key +'/conditions/q/'+ state +'/'+ city +'.json';
+            fetch(conditions).then(
+              function(response){
+                if(response.status !== 200){
+                  console.log('Looks like there was a problem. Status code: '+ response.status);
+                  return;
+                }
+                response.json().then(
+                  function(data){
+                    let location = document.querySelector('#location');
+                    let temperature = document.querySelector('#weather_current_temp');
+                    let description = document.querySelector('#description');
+                    let icon = document.querySelector('#icon');
+                    location.innerHTML = data.current_observation.display_location.city;
+                    temperature.innerHTML = Math.round(data.current_observation.temp_f);
+                    description.innerHTML = data.current_observation.weather;
+                    icon.setAttribute('src', data.current_observation.icon_url);
+                  }
+                )
+              }
+            )
+          }
+        )
       }
     )
   }

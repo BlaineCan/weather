@@ -3,7 +3,7 @@ Ever wanted just the weather and not all that extra nonsense? Yeah, me neither.
 
 So what I have created is a bland page that make an api call to the weather underground api and returns your city and temperature. Not thing more.
 
-#Running
+# Running
 If for whatever you would like run the damn thing, doing so is simple.
 First, you'll want to clone the repo. 
 ```
