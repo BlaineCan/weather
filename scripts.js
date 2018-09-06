@@ -1,3 +1,6 @@
+//Just something to note: This is a hot mess. I do apologize. I'll clean it up later.
+//Thanks for stopping by and checking it out though.
+
 (function weather(){
   this.init = function(){
     this.getlocation();
