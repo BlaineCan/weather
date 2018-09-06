@@ -3,15 +3,24 @@
     this.getlocation();
   }
   this.getlocation = function(){
-    if(navigator.geolocation){
+    if(!navigator.geolocation){
+      console.log('Geolocation not supported.');
+      return
+    } else {
       navigator.geolocation.getCurrentPosition(showPosition);
       this.showPosition();
-    } else {
-      console.log("Geolocation not supported");
     }
   }
+  // this.getlocation = function(){
+  //   if(navigator.geolocation){
+  //     navigator.geolocation.getCurrentPosition(showPosition);
+  //     this.showPosition();
+  //   } else {
+  //     console.log("Geolocation not supported");
+  //   }
+  // }
   this.showPosition = function(position){
-    console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
+    //console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     let key = 'aed684636d700ce7';
