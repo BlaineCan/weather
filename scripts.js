@@ -11,7 +11,6 @@
     }
   }
   this.showPosition = function(position){
-    console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     let key = 'aed684636d700ce7';
