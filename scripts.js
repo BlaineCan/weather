@@ -11,20 +11,15 @@
       this.showPosition();
     }
   }
-  // this.getlocation = function(){
-  //   if(navigator.geolocation){
-  //     navigator.geolocation.getCurrentPosition(showPosition);
-  //     this.showPosition();
-  //   } else {
-  //     console.log("Geolocation not supported");
-  //   }
-  // }
   this.showPosition = function(position){
-    //console.log("Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude);
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     let key = 'aed684636d700ce7';
-    let geolookup = 'https://cors-anywhere.herokuapp.com/http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json';
+    let lookupRequest = fetch('https://cors-anywhere.herokuapp.com/http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json').then(function(response){
+      return response.json()
+    });
+    let conditionsRequest = fetch()
+    // let geolookup = 'https://cors-anywhere.herokuapp.com/http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json';
     fetch(geolookup).then(
       function (response) {
         if(response.status !== 200){
