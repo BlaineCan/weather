@@ -1,4 +1,2 @@
-.idea
-.sass-cache
-sass-css-output.css.map
 node_modules
+key.js
