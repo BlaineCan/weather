@@ -1,4 +1,3 @@
-
 function showPosition(latitude, longitude){
     //console.log(latitude, longitude);
     let geolookup = 'https://cors-anywhere.herokuapp.com/http://api.wunderground.com/api/'+ key +'/geolookup/q/'+ latitude +','+ longitude +'.json';
@@ -7,7 +6,6 @@ function showPosition(latitude, longitude){
         console.log(response.status);
         return;
       }
-      //console.log(geolookup);
       response.json().then((data)=>{
         getConditions(data);
       })
@@ -15,7 +13,6 @@ function showPosition(latitude, longitude){
 }
 
 function getConditions(data){
-  //console.log(data)
   let state = data.location.state;
   let city = data.location.city;
   let conditions = 'https://cors-anywhere.herokuapp.com/http://api.wunderground.com/api/'+ key +'/conditions/q/'+ state +'/'+ city +'.json';
@@ -25,7 +22,6 @@ function getConditions(data){
       return;
     }
     response.json().then((data)=>{
-      //console.log(data);
       showConditions(data);
     })
   })
@@ -47,6 +43,7 @@ function showConditions(data){
     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
     return;
   }
+
   navigator.geolocation.getCurrentPosition((position)=>{
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
@@ -54,4 +51,5 @@ function showConditions(data){
     showPosition(latitude, longitude);
     //console.log("latitude: " + latitude + " & " + "longitude: " + longitude);
   })
+
 })();

@@ -1,0 +1,27 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "Ever wanted just the weather and not all that extra nonsense? Yeah, me neither.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Whatchamazog/weather.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Whatchamazog/weather/issues"
+  },
+  "homepage": "https://github.com/Whatchamazog/weather#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mustache": "^3.0.0",
+    "mustache-express": "^1.2.8",
+    "nodemon": "^1.18.4",
+    "request": "^2.88.0"
+  }
+}
