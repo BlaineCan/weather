@@ -1,10 +1,8 @@
-const express = require('express');
+const app = require('express')();
 const scripts = require('./scripts');
+const routes = require('./routes');
 const key = require('./key');
-const app = express();
 
-app.get('/', (req, res)=>{
-    scripts.searchQuery();
-});
+app.use('/', routes);
 
 app.listen(8000)
