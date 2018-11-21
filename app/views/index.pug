@@ -5,7 +5,9 @@ html
             h1 Weather
             h3 Type in the search bar below to grab the weather. 
             div.container
-                input.search(type="text")
-                input.search(type="submit" value="Submit")
+                fieldset
+                    form(action="/" method="post")
+                        input(name="city" type="text" class="ghost-input" placeholder="Enter a City" required)
+                        input(type="submit" class="ghost-input" value="Get Weather")
                 
         
