@@ -1,5 +1,6 @@
 html
     head
+        link(rel="stylesheet", href="../style.css")
     body
         main
             h1 Weather
@@ -7,7 +8,7 @@ html
             div.container
                 fieldset
                     form(action="/" method="post")
-                        input(name="city" type="text" class="ghost-input" placeholder="Enter a City" required)
-                        input(type="submit" class="ghost-input" value="Get Weather")
+                        input(name="city" type="text" class="main-input" placeholder="Enter a City" required)
+                        input(type="submit" class="main-button" value="Get Weather")
                 
         

@@ -1,11 +1,12 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
 const pug = require('pug');
 const scripts = require('./scripts');
 const key = require('./key');
 
 app.use(bodyParser.urlencoded({extended: true}));
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
 app.set('views', './views');
 app.set('view engine', 'pug');
