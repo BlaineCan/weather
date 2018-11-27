@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const pug = require('pug');
 const scripts = require('./scripts');
 const key = require('./key');
+const request = require('request');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -16,8 +17,12 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/', (req, res)=>{
-    res.render('index')
-    console.log(req.body.city)
+    let url = scripts.searchQuery();
+    request(url, (error, response, body)=>{
+        console.log('error:', error)
+        console.log('Status Code: ', response)
+        console.log('body: ', body)
+    })
 })
 
 app.listen(8000)
