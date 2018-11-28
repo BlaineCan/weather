@@ -16,12 +16,16 @@ app.get('/', (req, res)=>{
     res.render('index')
 })
 
-app.post('/', (req, res)=>{
+app.post('/fetching-position', (req, res)=>{
     let url = scripts.searchQuery();
     request(url, (error, response, body)=>{
-        console.log('error:', error)
-        console.log('Status Code: ', response)
-        console.log('body: ', body)
+        if(!error || response !== 200){
+            let weather = JSON.parse(body)
+            console.log(weather)
+            res.render('fetching-position')
+        } else {
+            res.render('error')
+        }
     })
 })
 
