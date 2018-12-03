@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const pug = require('pug');
-const scripts = require('./scripts');
 const key = require('./key');
 const request = require('request');
 
@@ -16,13 +15,14 @@ app.get('/', (req, res)=>{
     res.render('index')
 })
 
-app.post('/fetching-position', (req, res)=>{
-    let url = scripts.searchQuery();
+app.post('/fetching-data', (req, res)=>{
+    let query = req.body.city;
+    let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&appid=' + key;
     request(url, (error, response, body)=>{
-        if(!error || response !== 200){
+        if(!error || response == 200){
             let weather = JSON.parse(body)
             console.log(weather)
-            res.render('fetching-position')
+            res.render('fetching')
         } else {
             res.render('error')
         }
