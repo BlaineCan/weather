@@ -1,14 +1,12 @@
-html
-    head
-        link(rel="stylesheet", href="../style.css")
-    body
-        main
-            h1 Weather
-            h3 Type in the search bar below to grab the weather. 
+include head.pug
+body
+    main
+        h1 Weather
+        h3 Type in the search bar below to grab the weather. 
             div.container
                 fieldset
                     form(action="/" method="post")
                         input(name="city" type="text" class="main-input" placeholder="Enter a City" required)
                         input(type="submit" class="main-button" value="Get Weather")
-                
+                    
         

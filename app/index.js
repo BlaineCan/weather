@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const pug = require('pug');
-const scripts = require('./scripts');
 const key = require('./key');
 const request = require('request');
 
@@ -18,11 +17,19 @@ app.get('/', (req, res)=>{
 
 app.post('/', (req, res)=>{
     let query = req.body.city;
-    let url = 'api.openweathermap.org/data/2.5/weather?q=' + query + '&appid=' + key;
-    request(url, (error, response, body)=>{
-        console.log(body)
-        res.render('index')
+    let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&appid=' + key;
+    console.log(url)
+    request(url, (err, response, body)=>{
+        if(err){
+            res.render('error')
+        } else {
+            let weather = JSON.parse(body)
+            console.log(weather)
+        }
     })
+    res.render('index')
 })
 
-app.listen(8000)
+app.listen(8000, ()=>{
+    console.log('Serving on PORT:8000. Please visit localhost:8000')
+})
