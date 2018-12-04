@@ -17,11 +17,11 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/', (req, res)=>{
-    let url = scripts.searchQuery();
+    let query = req.body.city;
+    let url = 'api.openweathermap.org/data/2.5/weather?q=' + query + '&appid=' + key;
     request(url, (error, response, body)=>{
-        console.log('error:', error)
-        console.log('Status Code: ', response)
-        console.log('body: ', body)
+        console.log(body)
+        res.render('index')
     })
 })
 
