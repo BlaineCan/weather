@@ -9,4 +9,6 @@ body
                         input(name="city" type="text" class="main-input" placeholder="Enter a City" required)
                         input(type="submit" class="main-button" value="Get Weather")
             div.weather 
-                h1 The weather results will go here
+                h2= name
+                h1= mainTemp
+                h3= weatherDescription
