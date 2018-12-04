@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const pug = require('pug');
 const bodyParser = require('body-parser');
 const scripts = require('./scripts');
@@ -14,14 +13,7 @@ app.set('view engine', 'pug');
 
 app.get('/', (req, res)=>{
     res.render('index')
-})
-
-app.post('/', (req, res)=>{
     console.log(req.body)
-})
-
-app.get('/weather', (req,res)=>{
-    res.render('weather')
 })
 
 app.post('/', (req, res)=>{

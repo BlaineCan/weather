@@ -4,17 +4,9 @@ html
     body
         main
             h1 Weather
-            h3 Type in the search bar below to grab the weather. 
+            h3 Type in the search bar below to grab the weather.
             div.container
-<<<<<<< HEAD
-            form(action="/weather", method="get")
-                input.search(type="text")
-                button.search-button(type="submit" ) Submit
-=======
-                fieldset
-                    form(action="/" method="post")
-                        input(name="city" type="text" class="main-input" placeholder="Enter a City" required)
-                        input(type="submit" class="main-button" value="Get Weather")
->>>>>>> 483cb2cd38a08e571e43df1377e6e8d9eeec16df
-                
-        
+              fieldset
+                form(action="/" method="post")
+                  input(name="city" type="text" class="main-input" placeholder="Enter a City" required)
+                  input(type="submit" class="main-button" value="Get Weather")
