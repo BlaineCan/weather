@@ -9,7 +9,7 @@ body{
 fieldset{
     display: block;
     border: 0px;
-    padding: 3rem;
+    padding: 1rem;
 }
 
 main{
@@ -17,6 +17,7 @@ main{
 }
 
 h1{
+    margin: 1rem;
     font-size: 4rem;
 }
 
@@ -26,6 +27,7 @@ h1{
 }
 
 .main-input{
+    border-radius: 25px;
     display: block;
     width: 100%;
     font-size: 3rem;
@@ -34,6 +36,7 @@ h1{
 }
 
 .main-button{
+    border-radius: 25px;
     margin: 0 auto;
     display: block;
     border: 0.25rem solid #ddd;

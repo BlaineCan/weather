@@ -22,10 +22,10 @@ app.post('/', (req, res)=>{
         if(!error){
             let weather = JSON.parse(body)
             let name = weather.name;
-            let mainTemp = weather.main.temp;
+            let mainTemp = Math.round(weather.main.temp);
             let weatherDescription = weather.weather[0].description;
             res.render('results',{name: name, mainTemp: mainTemp, weatherDescription: weatherDescription})
-        } else {
+        } else{
             res.render('error')
         }
     })
