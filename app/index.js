@@ -15,7 +15,7 @@ app.get('/', (req, res)=>{
     res.render('index')
 })
 
-app.post('/fetching-data', (req, res)=>{
+app.post('/', (req, res)=>{
     let query = req.body.city;
     let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&appid=' + key;
     request(url, (error, response, body)=>{
