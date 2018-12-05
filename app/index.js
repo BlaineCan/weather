@@ -18,18 +18,19 @@ app.get('/', (req, res)=>{
 app.post('/', (req, res)=>{
     let query = req.body.city;
     let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&appid=' + key;
-    console.log(url)
-    request(url, (err, response, body)=>{
-        if(err){
-            res.render('error')
-        } else {
+    request(url, (error, response, body)=>{
+        if(!error){
             let weather = JSON.parse(body)
-            console.log(weather)
+            let name = weather.name;
+            let mainTemp = weather.main.temp;
+            let weatherDescription = weather.weather[0].description;
+            res.render('results',{name: name, mainTemp: mainTemp, weatherDescription: weatherDescription})
+        } else {
+            res.render('error')
         }
     })
-    res.render('index')
 })
 
 app.listen(8000, ()=>{
-    console.log('Serving on PORT:8000. Please visit localhost:8000')
+    console.log('Serving on PORT:8000. Please visit localhost:8000.')
 })
