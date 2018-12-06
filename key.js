@@ -1,3 +1,1 @@
-const key = '76a54809eb9681d26de2127db2ba9bb0';
-
-module.exports = key;
+//This is where the api key goes. Just name the key and set the value to which ever api key you would like to use. Don't forget to export it.
