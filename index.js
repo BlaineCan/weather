@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const pug = require('pug');
-const key = require('./app/key');
+const key = require('./key');
 const request = require('request');
 
 app.use(bodyParser.urlencoded({extended: true}));
