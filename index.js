@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const pug = require('pug');
 const key = require('./key');
 const request = require('request');
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -31,6 +32,6 @@ app.post('/', (req, res)=>{
     })
 })
 
-app.listen(8000, ()=>{
-    console.log('Serving on PORT:8000. Please visit localhost:8000.')
+app.listen(PORT, ()=>{
+    console.log(`Serving on PORT:${PORT}`)
 })
