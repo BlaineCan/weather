@@ -31,6 +31,6 @@ app.post('/', (req, res)=>{
     })
 })
 
-app.listen(8000, ()=>{
+app.listen(process.env.port || 8000, ()=>{
     console.log('Serving on PORT:8000. Please visit localhost:8000.')
 })
