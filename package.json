@@ -9,7 +9,7 @@
     "node": "10.x"
   },
   "scripts": {
-    "start":"node index.js"
+    "start":"node app/index.js"
   },
   "main": "index.js"
 }
