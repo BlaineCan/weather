@@ -1,9 +1,13 @@
 const express = require('express');
 const app = express();
 const pug = require('pug');
+<<<<<<< HEAD
 const bodyParser = require('body-parser');
 const scripts = require('./scripts');
+=======
+>>>>>>> de60a932f0ec3e1d247c9e35486784f9c4a3f9d7
 const key = require('./key');
+const request = require('request');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -16,9 +20,26 @@ app.get('/', (req, res)=>{
     console.log(req.body)
 })
 
-app.post('/', (req, res)=>{
-    res.render('index')
-    console.log(req.body.city)
+app.post('/fetching-data', (req, res)=>{
+    let query = req.body.city;
+    let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&appid=' + key;
+    request(url, (error, response, body)=>{
+        if(!error){
+            let weather = JSON.parse(body)
+            let name = weather.name;
+            let mainTemp = weather.main.temp;
+            let weatherDescription = weather.weather[0].description;
+            res.render('results',{name: name, mainTemp: mainTemp, weatherDescription: weatherDescription})
+        } else {
+            res.render('error')
+        }
+    })
 })
 
+<<<<<<< HEAD
 app.listen(8000)
+=======
+app.listen(8000, ()=>{
+    console.log('Serving on PORT:8000. Please visit localhost:8000.')
+})
+>>>>>>> de60a932f0ec3e1d247c9e35486784f9c4a3f9d7
