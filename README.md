@@ -1,7 +1,8 @@
 # Weather
 Ever wanted just the weather and not all that extra nonsense? Yeah, me neither. 
 
-So what I have created is a bland page that make an api call to the weather underground api and returns your city and temperature. Not thing more.
+So what I did in my free time is build just that!
+My weather app is clean, simple, and presents you with bare minimum information.
 
 # Running
 If for whatever you would like run the damn thing, doing so is simple.
@@ -13,16 +14,16 @@ cd into the directtory you've just created.
 ```
 cd weather
 ```
-Open up ```script.js``` take a peek at line 6.
-```javascript
-let key = //Your api key goes here;
+Install all the necessary dependencies.
 ```
-NOTE:
-Weather Underground does require the use of an api key. I will not provide you with one, because it is mine and I like my things.
-However, it's free and you can grab one [Here](https://www.wunderground.com/)
+yarn add
+```
+Then run the app. 
+```
+node index.js
+```
 
-Insert your api key in the varible called Key.
-Save it and open the html file with in your favorite web browser.
-```
-open index.html
-```
+NOTE:
+The data for this project was pulled from the Open Weather Api.
+If you're interested in building a like app of your own with the same service, you can get started [Here](https://openweathermap.org/appid)
+

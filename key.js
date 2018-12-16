@@ -1,3 +1,3 @@
-const key = '76a54809eb9681d26de2127db2ba9bb0';
+const key = //this is where your key goes;
 
 module.exports = key;
