@@ -20,8 +20,9 @@ app.post('/', (req, res)=>{
     let query = req.body.city;
     let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&appid=' + key;
     request(url, (error, response, body)=>{
-        if(!error){
+        if(response.statusCode === 200){
             let weather = JSON.parse(body)
+            console.log(weather)
             let name = weather.name;
             let mainTemp = Math.round(weather.main.temp);
             let weatherDescription = weather.weather[0].description;
