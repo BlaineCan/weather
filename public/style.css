@@ -43,3 +43,7 @@ h1{
     padding: 1rem 3rem;
     font-size: 1.2rem;
 }
+
+.weather {
+    text-align: center;
+}
