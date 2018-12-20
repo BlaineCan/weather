@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const pug = require('pug');
 const key = require('./key');
 const request = require('request');
@@ -20,15 +19,14 @@ app.post('/', (req, res)=>{
     let query = req.body.city;
     let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&appid=' + key;
     request(url, (error, response, body)=>{
-        if(response.statusCode === 200){
-            let weather = JSON.parse(body)
-            console.log(weather)
-            let name = weather.name;
-            let mainTemp = Math.round(weather.main.temp);
-            let weatherDescription = weather.weather[0].description;
-            res.render('results',{name: name, mainTemp: mainTemp, weatherDescription: weatherDescription})
-        } else{
-            res.render('error')
+      if(response.statusCode === 200){
+        let weather = JSON.parse(body)
+        let name = weather.name;
+        let mainTemp = Math.round(weather.main.temp);
+        let weatherDescription = weather.weather[0].description;
+        res.render('results',{name: name, mainTemp: mainTemp, weatherDescription: weatherDescription})
+      } else{
+          res.render('error')
         }
     })
 })
