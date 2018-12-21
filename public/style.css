@@ -1,74 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+h1, h2, p{
+  display: inline-block;
+}
+
 body{
-    width: 85%;
-    margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    font-weight: 100;
+  margin: 0;
+  font-family: 'Work Sans', 'sans-serif';
 }
 
 fieldset{
-    display: block;
-    border: 0px;
-    padding: 1rem;
-}
-
-main{
-    text-align: center;
-}
-
-h1{
-    margin: 1rem;
-    font-size: 4rem;
+  display: inline-block;
+  border: 0px;
+  padding: 1rem;
 }
 
 .container{
-    width: 600px;
-    margin: 0 auto;
-}
-
-.space-around{
-  padding: 0 12rem;
-  justify-content: space-around;
-}
-
-.inline-block-container{
-  display: inline-block;
-  width: 55%;
-}
-
-.direction-row{
-  justify-content: space-around;
-  flex-direction: row;
-}
-
-  .direction-row p{
-    display: inline-block;
-  }
-
-  .direction-row > p{
-    margin: 0 1rem 0 0;
-  }
-
-  .direction-row > p:last-child{
-    margin: -0.85rem;
-  }
-
-.direction-column{
-  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .flex-container{
-  margin: 0 0 3rem 0;
+  flex-direction: row;
   display: flex;
 }
 
-  .flex-container > h1{
-    margin: 0 auto;
-    font-size: 10rem;
-  }
+.inner-container{
+  display: flex;
+  margin: 0 auto;
+}
 
-  .flex-container > h1 > p{
-    float: right;
-    font-size: 3rem;
-    font-weight: 300;
-  }
+.top{
+  margin: 0 0 2rem 0;
+}
+
+#main{
+  display: inherit;
+}
+
+#highLow{
+  margin: 0 0 0 10px;
+  flex-direction: column;
+  display: flex;
+}
+
+#high, #low{
+  height: 1.50rem;
+  flex-direction: row;
+}

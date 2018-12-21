@@ -1,3 +1,3 @@
-const key = //Your key will go here.
+const key = //Key will go here. 
 
 module.exports = key;

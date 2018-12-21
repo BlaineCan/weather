@@ -1,52 +1,31 @@
 include head.pug
 body
-    main
-        h1 Weather
-        h3 Type in the search bar below to grab the weather. 
-            div.container
-                fieldset
-                    form(action="/" method="post")
-                        input(name="city" type="text" class="main-input" placeholder="Enter a City" required)
-                        input(type="submit" class="main-button" value="Get Weather")
-        div.weather 
-          div.inline-block-container
-            div.title
-              h1= name
-              h3= weatherDescription
-          div.flex-container
+  div.container
+    div.top 
+      h1= name
+      div.flex-container
+        div.inner-container
+          div#main
             h1= mainTemp
-              p &#176 F
-          div.flex-container.space-around
-            div.direction-row
+            p &#176 F
+          div#highLow
+            div#high
               p High: 
               p= temp_max 
               p &#176 F
-            div.direction-row
+            div#low
               p Low: 
               p= temp_min 
               p &#176 F
-          div.flex-container.space-around
-            div.direction-column
-              h3 Humidity
-              div.direction-row
-                p= humidity
-                p %
-            div.direction-column
-              h3 Wind Speed
-              div.direction-row
-                p= speed
-                p m/h
-            div.direction-column
-              h3 Clouds 
-              div.direction-row
-                p= clouds
-                p %
-            
-                //- name: name,
-                //- mainTemp: mainTemp,
-                //- temp_max: temp_max,
-                //- temp_min: temp_min,
-                //- humidity: humidity,
-                //- speed: speed,
-                //- clouds: clouds, 
-                //- weatherDescription: weatherDescription
+      h3= weatherDescription
+    div.bottom
+      h3 Humidity
+      p= humidity
+      p %
+      h3 Wind Speed
+      p= speed
+      p m/h
+      h3 Clouds 
+      p= clouds
+      p %
+      a(href="/") Back to Search
