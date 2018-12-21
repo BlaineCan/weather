@@ -24,12 +24,29 @@ app.post('/', (req, res)=>{
         if(weather.cod !== 200){
             let cod = weather.cod;
             let message = weather.message;
-            res.render('error', {cod: cod, message: message});
+            res.render('error', {
+              cod: cod,
+              message: message
+            });
         } else {
             let name = weather.name;
             let mainTemp = Math.round(weather.main.temp);
+            let temp_max = Math.round(weather.main.temp_max);
+            let temp_min = Math.round(weather.main.temp_min);
+            let humidity = weather.main.humidity;
+            let speed = Math.round(weather.wind.speed);
+            let clouds = weather.clouds.all;
             let weatherDescription = weather.weather[0].description;
-            res.render('results', {name: name, mainTemp: mainTemp, weatherDescription: weatherDescription});
+            res.render('results', {
+              name: name,
+              mainTemp: mainTemp,
+              temp_max: temp_max,
+              temp_min: temp_min,
+              humidity: humidity,
+              speed: speed,
+              clouds: clouds,
+              weatherDescription: weatherDescription
+            });
         }
     })
 })

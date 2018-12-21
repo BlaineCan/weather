@@ -26,21 +26,49 @@ h1{
     margin: 0 auto;
 }
 
-.main-input{
-    border-radius: 25px;
-    display: block;
-    width: 100%;
-    font-size: 3rem;
-    padding: 1rem 2rem;
-    margin: 2rem 0;
+.space-around{
+  padding: 0 12rem;
+  justify-content: space-around;
 }
 
-.main-button{
-    border-radius: 25px;
+.inline-block-container{
+  display: inline-block;
+  width: 55%;
+}
+
+.direction-row{
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+  .direction-row p{
+    display: inline-block;
+  }
+
+  .direction-row > p{
+    margin: 0 1rem 0 0;
+  }
+
+  .direction-row > p:last-child{
+    margin: -0.85rem;
+  }
+
+.direction-column{
+  flex-direction: column;
+}
+
+.flex-container{
+  margin: 0 0 3rem 0;
+  display: flex;
+}
+
+  .flex-container > h1{
     margin: 0 auto;
-    display: block;
-    border: 0.25rem solid #ddd;
-    padding: 1rem 3rem;
-    font-size: 1.2rem;
-}
+    font-size: 10rem;
+  }
 
+  .flex-container > h1 > p{
+    float: right;
+    font-size: 3rem;
+    font-weight: 300;
+  }

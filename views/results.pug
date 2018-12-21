@@ -8,7 +8,45 @@ body
                     form(action="/" method="post")
                         input(name="city" type="text" class="main-input" placeholder="Enter a City" required)
                         input(type="submit" class="main-button" value="Get Weather")
-            div.weather 
-                h2= name
-                h1= mainTemp
-                h3= weatherDescription
+        div.weather 
+          div.inline-block-container
+            div.title
+              h1= name
+              h3= weatherDescription
+          div.flex-container
+            h1= mainTemp
+              p &#176 F
+          div.flex-container.space-around
+            div.direction-row
+              p High: 
+              p= temp_max 
+              p &#176 F
+            div.direction-row
+              p Low: 
+              p= temp_min 
+              p &#176 F
+          div.flex-container.space-around
+            div.direction-column
+              h3 Humidity
+              div.direction-row
+                p= humidity
+                p %
+            div.direction-column
+              h3 Wind Speed
+              div.direction-row
+                p= speed
+                p m/h
+            div.direction-column
+              h3 Clouds 
+              div.direction-row
+                p= clouds
+                p %
+            
+                //- name: name,
+                //- mainTemp: mainTemp,
+                //- temp_max: temp_max,
+                //- temp_min: temp_min,
+                //- humidity: humidity,
+                //- speed: speed,
+                //- clouds: clouds, 
+                //- weatherDescription: weatherDescription
