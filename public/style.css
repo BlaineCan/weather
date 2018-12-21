@@ -75,3 +75,35 @@ fieldset{
   height: 1.50rem;
   flex-direction: row;
 }
+
+/* Responsive */
+
+@media (max-width: 450px){
+  h1, input{
+    margin: 0;
+    display: block;
+  }
+
+  h1{
+    font-size: 4.5rem;
+  }
+
+  fieldset{
+    display: inherit;
+  }
+
+  .main-input, .main-button{
+    margin: 1rem 0;
+  }
+
+  .main-input{
+    font-size: 1.55rem;
+    padding: 0.65rem;
+    width: 85%;
+  }
+
+  .main-button{
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+}
