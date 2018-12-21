@@ -30,8 +30,35 @@ fieldset{
   margin: 0 auto;
 }
 
-.top{
-  margin: 0 0 2rem 0;
+.bottom{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.bottom-condition{
+  flex-direction: column;
+}
+
+.margin-bottom{
+  margin: 0 0 5rem 0;
+}
+
+.main-button{
+  font-family: 'Work Sans', 'sans-serif';
+  margin: 0 0 0 1rem;
+  border: 0 solid transparent;
+  padding: 0.65rem;
+}
+
+.main-button:hover{
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+.main-input{
+  padding: 0.52rem;
 }
 
 #main{

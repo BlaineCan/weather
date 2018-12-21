@@ -1,7 +1,7 @@
 include head.pug
 body
   div.container
-    div.top 
+    div.margin-bottom
       h1= name
       div.flex-container
         div.inner-container
@@ -18,14 +18,17 @@ body
               p= temp_min 
               p &#176 F
       h3= weatherDescription
-    div.bottom
-      h3 Humidity
-      p= humidity
-      p %
-      h3 Wind Speed
-      p= speed
-      p m/h
-      h3 Clouds 
-      p= clouds
-      p %
-      a(href="/") Back to Search
+    div.bottom.margin-bottom
+      div.bottom-condition
+        h3 Humidity
+        p= humidity
+        p %
+      div.bottom-condition
+        h3 Wind Speed
+        p= speed
+        p m/h
+      div.bottom-condition
+        h3 Clouds 
+        p= clouds
+        p %  
+    a(href="/") Back to Search
