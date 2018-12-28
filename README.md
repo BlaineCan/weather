@@ -5,7 +5,7 @@ So what I did in my free time is build just that!
 My weather app is clean, simple, and presents you with bare minimum information.
 
 # Running
-If for whatever you would like run the damn thing, doing so is simple.
+If for whatever reason you would like to play with it, doing so is simple.
 First, you'll want to clone the repo. 
 ```
 git clone https://github.com/Whatchamazog/weather.git
