@@ -1,45 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
+
+h1, h2, p{
+  display: inline-block;
+}
+
 body{
-    width: 85%;
-    margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    font-weight: 100;
+  margin: 0;
+  font-family: 'Work Sans', 'sans-serif';
 }
 
 fieldset{
-    display: block;
-    border: 0px;
-    padding: 1rem;
-}
-
-main{
-    text-align: center;
-}
-
-h1{
-    margin: 1rem;
-    font-size: 4rem;
+  display: inline-block;
+  border: 0px;
+  padding: 1rem;
 }
 
 .container{
-    width: 600px;
-    margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
-.main-input{
-    border-radius: 25px;
-    display: block;
-    width: 100%;
-    font-size: 3rem;
-    padding: 1rem 2rem;
-    margin: 2rem 0;
+.flex-container{
+  flex-direction: row;
+  display: flex;
+}
+
+.inner-container{
+  display: flex;
+  margin: 0 auto;
+}
+
+.bottom{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.bottom-condition{
+  flex-direction: column;
+}
+
+.margin-bottom{
+  margin: 0 0 5rem 0;
 }
 
 .main-button{
-    border-radius: 25px;
-    margin: 0 auto;
+  font-family: 'Work Sans', 'sans-serif';
+  margin: 0 0 0 1rem;
+  border: 0 solid transparent;
+  padding: 0.65rem;
+}
+
+.main-button:hover{
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
+
+.main-input{
+  padding: 0.52rem;
+}
+
+#main{
+  display: inherit;
+}
+
+#highLow{
+  margin: 0 0 0 10px;
+  flex-direction: column;
+  display: flex;
+}
+
+#high, #low{
+  height: 1.50rem;
+  flex-direction: row;
+}
+
+/* Responsive */
+
+@media (max-width: 450px){
+  h1, input{
+    margin: 0;
     display: block;
-    border: 0.25rem solid #ddd;
-    padding: 1rem 3rem;
-    font-size: 1.2rem;
+  }
+
+  h1{
+    font-size: 4.5rem;
+  }
+
+  fieldset{
+    display: inherit;
+  }
+
+  .main-input, .main-button{
+    margin: 1rem 0;
+  }
+
+  .main-input{
+    font-size: 1.55rem;
+    padding: 0.65rem;
+    width: 85%;
+  }
+
+  .main-button{
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
 }

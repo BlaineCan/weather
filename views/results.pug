@@ -1,14 +1,34 @@
 include head.pug
 body
-    main
-        h1 Weather
-        h3 Type in the search bar below to grab the weather. 
-            div.container
-                fieldset
-                    form(action="/" method="post")
-                        input(name="city" type="text" class="main-input" placeholder="Enter a City" required)
-                        input(type="submit" class="main-button" value="Get Weather")
-            div.weather 
-                h2= name
-                h1= mainTemp
-                h3= weatherDescription
+  div.container
+    div.margin-bottom
+      h1= name
+      div.flex-container
+        div.inner-container
+          div#main
+            h1= mainTemp
+            p &#176 F
+          div#highLow
+            div#high
+              p High: 
+              p= temp_max 
+              p &#176 F
+            div#low
+              p Low: 
+              p= temp_min 
+              p &#176 F
+      h3= weatherDescription
+    div.bottom.margin-bottom
+      div.bottom-condition
+        h3 Humidity
+        p= humidity
+        p %
+      div.bottom-condition
+        h3 Wind Speed
+        p= speed
+        p m/h
+      div.bottom-condition
+        h3 Clouds 
+        p= clouds
+        p %  
+    a(href="/") Back to Search

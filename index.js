@@ -1,6 +1,6 @@
 const express = require('express');
-const app = express();
 const bodyParser = require('body-parser');
+const app = express();
 const pug = require('pug');
 const key = require('./key');
 const request = require('request');
@@ -20,14 +20,33 @@ app.post('/', (req, res)=>{
     let query = req.body.city;
     let url = 'http://api.openweathermap.org/data/2.5/weather?q=' + query + '&units=imperial&appid=' + key;
     request(url, (error, response, body)=>{
-        if(!error){
-            let weather = JSON.parse(body)
+        let weather = JSON.parse(body);
+        if(weather.cod !== 200){
+            let cod = weather.cod;
+            let message = weather.message;
+            res.render('error', {
+              cod: cod,
+              message: message
+            });
+        } else {
             let name = weather.name;
             let mainTemp = Math.round(weather.main.temp);
+            let temp_max = Math.round(weather.main.temp_max);
+            let temp_min = Math.round(weather.main.temp_min);
+            let humidity = weather.main.humidity;
+            let speed = Math.round(weather.wind.speed);
+            let clouds = weather.clouds.all;
             let weatherDescription = weather.weather[0].description;
-            response.render('results',{name: name, mainTemp: mainTemp, weatherDescription: weatherDescription})
-        } else{
-            response.render('error')
+            res.render('results', {
+              name: name,
+              mainTemp: mainTemp,
+              temp_max: temp_max,
+              temp_min: temp_min,
+              humidity: humidity,
+              speed: speed,
+              clouds: clouds,
+              weatherDescription: weatherDescription
+            });
         }
     })
 })
