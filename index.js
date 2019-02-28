@@ -25,9 +25,9 @@ app.post('/', (req, res)=>{
             let name = weather.name;
             let mainTemp = Math.round(weather.main.temp);
             let weatherDescription = weather.weather[0].description;
-            res.render('results',{name: name, mainTemp: mainTemp, weatherDescription: weatherDescription})
+            response.render('results',{name: name, mainTemp: mainTemp, weatherDescription: weatherDescription})
         } else{
-            res.render('error')
+            response.render('error')
         }
     })
 })

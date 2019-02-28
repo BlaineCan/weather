@@ -1,28 +1,25 @@
 # Weather
 Ever wanted just the weather and not all that extra nonsense? Yeah, me neither. 
 
-So what I have created is a bland page that make an api call to the weather underground api and returns your city and temperature. Not thing more.
+So what I have done is take out all the bells and wistles, and present you with a simple tool that takes a city name and returns the weather. Nothing more.
 
 # Running
-If for whatever you would like run the damn thing, doing so is simple.
+If for whatever reason you would like to play around with it, doing so is simple.
 First, you'll want to clone the repo. 
 ```
 git clone https://github.com/Whatchamazog/weather.git
 ```
-cd into the directtory you've just created.
+cd into the directory you've just created.
 ```
 cd weather
 ```
-Open up ```script.js``` take a peek at line 6.
-```javascript
-let key = //Your api key goes here;
+Grab all the dependencies you need 
+```
+npm install
+```
+Then fire it up!
+```
+npm start
 ```
 NOTE:
-Weather Underground does require the use of an api key. I will not provide you with one, because it is mine and I like my things.
-However, it's free and you can grab one [Here](https://www.wunderground.com/)
-
-Insert your api key in the varible called Key.
-Save it and open the html file with in your favorite web browser.
-```
-open index.html
-```
+You will need to provide your own api key. I grabbed mine from openweather and you can too. It doesn't cost a dime and you can pick one up [here](https://openweathermap.org/).

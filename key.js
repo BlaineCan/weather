@@ -1,1 +1,9 @@
-//This is where the api key goes. Just name the key and set the value to which ever api key you would like to use. Don't forget to export it.
+/*
+    As stated in the readme, you will need your own api key. Venture on over openweather.org and grab you a key.
+    Once you've done that, just replace the string value with your key and node will do the rest.
+*/ 
+
+const key = "//Your api key will go here.";
+
+module.exports = key;
+
