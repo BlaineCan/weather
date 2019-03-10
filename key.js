@@ -3,7 +3,7 @@
     Once you've done that, just replace the string value with your key and node will do the rest.
 */ 
 
-const key = "27cc8befe34e178e988bd02e04fad076";
+const key = //Your api key will go here.;
 
 module.exports = key;
 
