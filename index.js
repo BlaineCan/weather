@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const pug = require('pug');
 const key = require('./key');
 const request = require('request');
 const PORT = process.env.PORT || 8000;

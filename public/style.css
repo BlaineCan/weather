@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans');
 
 h1, h2, p{
   display: inline-block;
@@ -11,7 +10,7 @@ body{
 
 fieldset{
   display: inline-block;
-  border: 0px;
+  border: none;
   padding: 1rem;
 }
 
