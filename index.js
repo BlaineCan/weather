@@ -53,3 +53,5 @@ app.post('/results/', (req, res)=>{
 app.listen(PORT, ()=>{
     console.log(`Serving on PORT:${PORT}`)
 })
+
+module.exports = app, express, request;
